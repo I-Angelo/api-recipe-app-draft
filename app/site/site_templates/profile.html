@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<link rel="stylesheet" href="../../static/css/style.css">
+    <section class="bg-light text-light text-center  mb-20 pt-2">
+        <div class="container p-5 bg-light">
+            <div class="row">
+                <div class="d-md-flex bg-light align-items-center justify-content-evenly " style="font-family: Lucida Console, Courier, monospace; color: #B2C248 !important">
+                    <h2 class="col text-center ">{{ current_user.first_name }},  Welcome To Your Photo Album!</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slider-pictures text-center pb-5 pt-5" style="margin-top: 12px;">
+    <div class="slider-pictures p-10 pb-5">
+        <div class="row">
+            <!-- <div class="d-md-flex align-items-center justify-content-evenly" style="font-family: Lucida Console, Courier, monospace; color: #B2C248 !important">
+                <h2 class="col text-center ">Let's Verify Your Information....</h2>
+            </div> -->
+
+            <ul class="list-group" style="border-radius: 7px; border-color: rgb(12, 100, 188); border-style: solid; padding-right: 0px !important">
+                <li class="list-group-item">First Name: {{ current_user.first_name }}</li> 
+                <li class="list-group-item">Last Name: {{ current_user.last_name }}</li> 
+                <li class="list-group-item">Email: {{ current_user.email }}</li> 
+                <li class="list-group-item">Token: {{ current_user.token }}</li>  
+            </ul>
+            <div class="row-3 p-10">
+                <h2 style="color:cornflowerblue"></h2>
+                <a href="{{ url_for('site.search_recipes') }}"><button type="button" style="color:#E2F516; background-color: #5865F2; border-radius: 5px;">Let's upload some photos....</button></a>
+            </div>
+        </div>
+        <!-- <div class="row" style="margin-top: 20px;">
+            
+            <div class="row-3 p-10">
+                <h2 style="color:cornflowerblue"></h2>
+                <a href="{{ url_for('site.upload_images') }}"><button type="button" style="color:#E2F516; background-color: #5865F2; border-radius: 5px;">Let's upload some photos....</button></a>
+            </div>
+            <div class="col-3"></div> -->
+        </div> 
+    </div>
+    </section>
+{% endblock %}

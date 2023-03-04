@@ -1,0 +1,244 @@
+/* *,*:before,*::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+} */
+
+/* * { border: 1px solid red; } */
+
+/* General */
+body {
+    padding-top: 257px;
+    position: relative;
+    min-height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    margin-bottom: 0;
+}
+
+html {
+    height: 100vh;
+}
+/* Navbar */
+
+.navbar .navbar-nav .nav-link {
+    color: #000000;
+    font-size: 1.1em;
+}
+.navbar-brand img {
+    width: 70px;
+}
+
+.navbar .navbar-nav .nav-link:hover{
+    color: #808080;
+}
+@media  screen and (min-width: 992px) {
+    .navbar-brand {
+        width: 50px
+    }
+
+    .navbar .container-fluid {
+        flex-direction: column;
+    }
+
+    /* .navbar {
+        flex-direction: column;
+    } */
+    .navbar .navbar-nav {
+        border-bottom: 2px solid #000;
+    }
+    .navbar .nav-item {
+        padding: 0.5em 1em;
+    }
+
+    .navbar .navbar-nav {
+        margin-top: 0.5em;
+        border-top: 2px solid #000;
+      }
+
+    .navbar .navbar-nav .nav-item {
+        padding: .5em 1em;;
+    }
+
+    .navbar .navbar-nav .nav-link {
+        color: #000000;
+        font-size: 1.1em;
+    }
+}
+.navbar .navbar-nav {
+  margin-top: 0.5em;
+  border-top: 2px solid #000;
+}
+
+/* .navbar-brand {
+    
+    text-shadow: 2px 2px rgb(228, 222, 35);
+} */
+
+
+/* .nav-link:hover {
+    background-color: cyan;
+} */
+
+/* .maintxt {
+    position: relative;
+    text-align: center;
+    color: white;
+} */
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } */
+
+  /* .container1 {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    height: 200px;
+    top: 0px;
+    background-image: url(../../static/images/lonely-road_1127-3.webp);
+} */
+
+
+/* Footer */ 
+footer {
+    margin-bottom: 0px;
+    /* position: absolute; */
+}
+
+.bottom {
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+    /* padding-bottom: 75px; */
+    justify-content: space-evenly;
+}
+
+.map {
+    width: 275px;
+    padding: 2%;
+    padding-left: 40px;
+    padding-top: 20px;
+    margin-bottom: 0;
+    height: 100%;
+}
+
+.maping {
+    width: 200px;
+}
+
+.media {
+    height: auto;
+}
+
+.tiny:hover {
+    background-color: darkorange;
+}
+
+.footinfo {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    font: 0.6em;
+}
+
+.footshows {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    font: 0.6em;
+}
+
+.social {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    font: 0.6em;
+}
+
+.foothead {
+    font-size: 2em;
+}
+
+.tiny {
+    margin: 0;
+}
+
+.h1 {
+    color :blue;
+}
+
+
+
+
+/*  */
+
+.toggle-button {
+    position: absolute; /*to force the button to be opn the most right side of the screen*/
+    top: .75rem; /*positioning the button almost at the top but not quite*/
+    right: 1rem; /*Same thing, positioning the butto from the right side of the screen*/
+    display: none; /*we dont want it to display by default, only when the screen shrinks. If you change it to 'flex' it will show up in a larger menu*/
+    flex-direction: column;/*all different spans show up on top of each other*/
+    justify-content: space-between;/*space between the elemnt in the column*/
+    width: 30px; /*this last two are the size of the hamburger*/
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+
+}
+
+@media (max-width: 600px) {
+    .toggle-button{
+        display: flex;
+    }
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+    /* Tho code above from 78, it for the hamburger icon to show up when the screen is shrunk  but nothing shows up yet*/
+
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+}

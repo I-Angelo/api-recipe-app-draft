@@ -1,0 +1,89 @@
+{% extends 'base.html' %} 
+
+
+{% block content %}
+<link rel="stylesheet" href="../../static/css/style.css">
+<body style="padding-top: 100px ">
+    <section>
+        <div class="slider-album-welcome" style=" margin-top: 200px !important; margin-bottom: 60px !important;">
+    <!-- <div class="container" style="padding-top: 120px !important; padding-bottom: 30px !important; margin-bottom: 75px !important; margin-top: 75px !important"> -->
+        <div class="row-3 p-10">
+            <h1 style="font-family: Lucida Console, Courier, monospace; color: #B2C248 !important">WELCOME YOU YOUR PHOTO ALBUM!!</h1>
+        </div>
+    </div>
+    </div>
+    <div class="slider-pictures " style="margin-bottom: 150px !important">
+        <div style='display: flex; justify-content: space-around; flex-wrap: wrap;'>
+            {% for url in blob_urls %}
+            <div style="justify-content: space-between;">
+                <img id="img_album" src="{{ url }}"  width="50px" height="50px"  style='margin: 1em; border-radius: 7px; padding: 15px; border-color: rgb(32, 148, 215); border-style: solid; justify-content: space-between;'>
+                <div style="display: flex; justify-content: center;">
+                    <h6 >{{ url.split('/')[-1] }} </h6>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+<!-- new -->
+
+<div class="slider-delete-album" style="position: relative; text-align: center; margin-top: 75px !important">
+    <!-- <div class="container"  style="padding-top: 100px !important; padding-bottom: 10px !important; margin-bottom: 75px !important; margin-top: 75px !important"> -->
+        <!-- <h3 style="color:blueviolet">Below are the list of the images than you can choose to erase from your album</h3> -->
+    <div>
+        {% for blob in blobs %}
+          <div>
+            <img src="{{ url_for('site.get_image', filename=blob.name) }}" alt="{{ blob.name }}">
+            <div class="comment">{{ blob.metadata.comment }}</div>
+            <form method="post" action="{{ url_for('site.update_images') }}">
+              <input type="hidden" name="blob" value="{{ blob.name }}">
+              <label for="comment_{{ blob.name }}">Add your comment:</label>
+              <textarea id="comment_{{ blob.name }}" name="comment_{{ blob.name }}">{{ blob.metadata.comment }}</textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        {% endfor %}
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- stop new -->
+    </section>
+    <section>
+        <div class="slider-delete-album" style="position: relative; text-align: center; margin-top: 75px !important">
+        <!-- <div class="container"  style="padding-top: 100px !important; padding-bottom: 10px !important; margin-bottom: 75px !important; margin-top: 75px !important"> -->
+            <!-- <h3 style="color:blueviolet">Below are the list of the images than you can choose to erase from your album</h3> -->
+        <div>
+            <h2 style="color:rgb(188, 67, 91); font-family: Lucida Console, Courier, monospace;">Which images would you like to erase?</h2>
+            <form style="color: rgb(20, 178, 240); font-family: Lucida Console, Courier, monospace;"   action="/delete" method="POST">
+                {% for blob in blobs %}
+                    <input type="checkbox" style="color: rgb(172, 14, 14); font-family: Lucida Console, Courier, monospace;" name="blob" value="{{ blob }}"> {{ blob }}<br>
+                {% endfor %}
+                <br>
+                <input type="submit" value="Delete" style="color:#E2F516; background-color: #E42217;">
+            </form>
+        </div>
+        </div>
+    </section>
+    <section style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-size: medium;">
+        <div class="container" style="padding-top: 10px !important; padding-bottom: 100px !important; margin-bottom: 75px !important; margin-top: 75px !important; color: cornflowerblue;">
+            <div class="row-3 p-10">
+                <h2 style="color:cornflowerblue; font-family: Lucida Console, Courier, monospace;">If you would like to add more images please click below....</h2>
+                <a href="{{ url_for('site.upload_images') }}"><button type="button" style="color:#E2F516; background-color: #5865F2;">Let's upload some photos....</button></a>
+            </div>
+        </div>
+    </section>
+  </body>
+
+
+
+
+
+{% endblock %}

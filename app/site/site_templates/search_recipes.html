@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<link rel="stylesheet" href="../../static/css/style.css">
+<script src="script2.js"></script>
+  <body>
+    <div class="slider-signin">
+            <div class="container">
+            <div class="search-container">
+                <input
+                type="text"
+                placeholder="Type A Dish Name Here.."
+                id="user-inp"
+                />
+                <button id="search-btn">Search</button>
+            </div>
+            <div id="result"></div>
+            </div>
+        </div>
+    <!-- Script -->
+    <script src="script.js"></script>
+  </body>
+
+  <script src="../../static/images_carrousel/script.js"></script>
+
+{% endblock %}
